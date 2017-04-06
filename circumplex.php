@@ -59,6 +59,7 @@
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
 					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">STEP 1</a>
+					<a href="#" id="help-circumplex" data-toggle="modal" title="Click for further info" data-target="#myModal"><span class="fa fa-question-circle"></span></a>
 				</div>
 			</div>
 		</div>
@@ -69,7 +70,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="circumplexHeading">How do you feel?</h2>
-						<p class="circumplexHeading--helper">*Click on the square below</p>
+						<div>
+							<p class="circumplexHeading--helper">* Click on the angle you feel today </p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -92,6 +95,57 @@
 				</div>
 			</div>
 		</section>
+	</div>
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog" id="helpCircumplexdialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Process</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<video width="100%" controls>
+			  <source src="video/circumplex.mp4" type="video/mp4">
+			  <source src="video/circumplex.mp4" type="video/ogg">
+			  Your browser does not support HTML5 video.
+			</video>
+			<div class="meaning-emotion">
+				<div class="emotion">
+					<h1 class="emotion-header">Pleasure</h1>
+					<p class="emotion-description">Pleasure describes the broad class of mental states that humans and other animals experience as positive, enjoyable, or worth seeking. It includes more specific mental states such as happiness, entertainment, enjoyment, ecstasy, and euphoria.</p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Excitement</h1>
+					<p class="emotion-description">Excitement is a feeling or situation full of activity, joy, exhilaration, or upheaval. One thing about excitement — it sure isn't boring. There are a few types of excitement, but they're all exciting — they get your attention. If you can't wait for your birthday, you're feeling a happy kind of excitement.</p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Arousal</h1>
+					<p class="emotion-description">Arousal is basically being alert, physically and mentally. Various body systems and hormones are involved,and contribute to alertness and readiness to move. Some signs of arousal are increased heart rate and blood pressure and quick responses. </p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Distress</h1>
+					<p class="emotion-description">This term refers to the "bad" type of stress, and occurs when we have excessive adaptive demands placed upon us. This occurs when the demands upon us are so great that they lead to bodily and mental damage. Distress is damaging, excessive or pathogenic (disease producing) stress.</p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Displeasure</h1>
+					<p class="emotion-description">The state of being displeased; dissatisfaction; vexation; indignant disapproval. </p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Depression</h1>
+					<p class="emotion-description">Depression is a state of low mood and aversion to activity that can affect a person's thoughts, behavior, feelings, and sense of well-being.[1][2]</p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Sleepiness</h1>
+					<p class="emotion-description">Sleepiness is a state of strong desire for sleep, or sleeping for unusually long periods (compare hypersomnia). </p>
+				</div>
+				<div class="emotion">
+					<h1 class="emotion-header">Relaxation</h1>
+					<p class="emotion-description">Relaxation in psychology, is the emotional state of a living being, of low tension, in which there is an absence of arousal that could come from sources such as anger, anxiety, or fear. </p>
+				</div>
+			</div>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 <script>
 	$( '#circumplexModel' ).click( function(e)

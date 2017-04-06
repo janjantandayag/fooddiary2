@@ -75,6 +75,7 @@
 				<div class="col-md-12">
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
 					<a href="#"  class="breadcrumb-link  breadcrumb-link-active"><span class="fa fa-plus-square-o"></span> add entry</a>
+					<a href="#" id="help-circumplex" data-toggle="modal" title="Click for further info" data-target="#myModal"><span class="fa fa-question-circle"></span></a>
 				</div>
 			</div>
 		</div>
@@ -115,7 +116,7 @@
 							<div class="col-md-8 ">
 								<h2 class="entryName"><?= $meal['food_name']; ?></h2>
 								<p class="servingSize"><span class="fa fa-cutlery" style="margin-right:5px"></span> <?= $meal['serving_size']; ?></p>
-								<p class="servingSize"><span class="fa fa-smile-o" style="margin-right:5px"></span> <?= $meal['emotion_name']; ?></p>
+								<p class="servingSize"><span class="fa fa-smile-o" style="margin-right:5px"></span> <?= strtoupper($meal['emotion_name']); ?></p>
 								<p class="servingSize"><span class="fa fa-calendar-o" style="margin-right:5px"></span>
 									<?php 
 										$date = strtotime($meal['date_added']);
@@ -133,19 +134,7 @@
 							</div>
 						</div>				
 					</div>			
-					<?php endforeach; ?>		
-					<!-- <div class="hide-item  -->
-					<?php					
-						// if(!($db->getMealCount($id))){
-						// 	echo 'arrow-none';
-						// }
-						// if($db->getMealCount($id)){
-						// 	echo 'arrow-none';
-						// }
-					?>
-					<!-- "> -->
-						<!-- <a href="#" class="hideItem" id="hideItem"><span class="fa fa-arrow-up"></span></a>
-					</div> -->					
+					<?php endforeach; ?>
 				</div>
 				<?php
 					endforeach;
@@ -153,6 +142,23 @@
 			</div>
 		</div>
 	</section>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" id="helpCircumplexdialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Process</h4>
+        </div>
+        <div class="modal-body">
+          <video width="100%" controls>
+            <source src="video/add.mp4" type="video/mp4">
+            <source src="video/add.mp4" type="video/ogg">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
 <script>
 $("#showItem").click(function(){
     $(".itemView").toggle();

@@ -60,6 +60,7 @@
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
 					<a href="circumplex.php"  class="breadcrumb-link">STEP 1</a>
 					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">STEP 2</a>
+					<a href="#" id="help-circumplex" data-toggle="modal" title="Click for further info" data-target="#myModal"><span class="fa fa-question-circle"></span></a>
 				</div>
 			</div>
 		</div>
@@ -68,21 +69,20 @@
 		<div class="mainPageFoodDetailContainer">
 			<div class="container foodDetailContainer">
 				<div class="row">
-					<div class="col-md-6 uploadPhoto">						
+					<div class="col-md-4 uploadPhoto">	
 						<form action='food-detail.php' method="POST" enctype="multipart/form-data">
 							<h1 class="uploadPhotoHeader">Upload Photo</h1>
 							<div class="degree90">
-								<h2 class="degreeHeader">90 degree photo</h2>
 								<label for="file-photo-90" class="custom-file-take">
 								    <i class="fa fa-cloud-upload"></i> Select Photo
 								</label>
 								<input type="file" id="file-photo-90" name="deg90" accept="image/*" capture="camera" onchange="document.getElementById('deg90').src = window.URL.createObjectURL(this.files[0])" >
 								<div class="imgContainer">
-									<img src="img/90deg.jpg" id="deg90"  class="imgPreview" />
+									<img src="img/icon-img.png" id="deg90"  class="imgPreview" />
 								</div>
 							</div>
 					</div>
-					<div class="col-md-6 foodDetails">						
+					<div class="col-md-8 foodDetails">						
 						<h1 class="foodDetailsHeader">Details</h1>
 						<div class="formContainer">							
 								<div class="row">
@@ -105,6 +105,7 @@
 							  	</div>
 							  	<?php if ($_SESSION['time']) : ?>
 							  	<div class="form-group">
+									<label for="servingSize" class="labelFood">Time</label>
 							  		<?= $_SESSION['time']; ?>
 							  	</div>
 							  <?php endif; ?>
@@ -136,6 +137,23 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog" id="helpCircumplexdialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Process</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<video width="100%" controls>
+			  <source src="video/food-detail.mp4" type="video/mp4">
+			  <source src="video/food-detail.mp4" type="video/ogg">
+			  Your browser does not support HTML5 video.
+			</video>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 </body>
 </html>

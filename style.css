@@ -183,8 +183,11 @@ input, select {
     color: #b12119;
 }
 
-#myCarousel{
+#visualizationCarousel{
     max-width:500px;
+}
+#statChartByMeal{
+    width:100%;
 }
 .carousel-indicators{
     bottom:-30px;
@@ -246,12 +249,12 @@ input, select {
     margin-top:40px;
 }
 .right-col .fa{
-    font-size: 100%;
+    font-size: 110%;
     color:#7b7272;
     margin-right:5px;
 }
 .right-col a,.icon{
-    font-size: 100%;
+    font-size: 110%;
     color:#7b7272;
     font-family: novaThin;   
     text-decoration: none;
@@ -348,10 +351,20 @@ input, select {
 
 }
 /* VERTICAL LINE */
-.circumplex-body{
-    background: url(img/circumplex-bg.jpg) no-repeat center center rgba(0,0,0,.1);
-    background-size: cover;
-    padding: 30px 0;
+.circumplexHeading--helper{
+    display: inline-block;
+}
+#helpCircumplexdialog{
+    width:900px;
+}
+#help-circumplex{
+    display: inline-block;
+    font-size: 120%;
+    color:#1d1d1c;
+    transition: .5s all;
+}
+#help-circumplex:hover{
+    color:#eeb10c;
 }
 .circumplex-model:before{
     position: absolute;
@@ -399,7 +412,7 @@ input, select {
     left:44%;
 }
 #visualization{
-    margin-top:20px;
+    margin-top:50px;
 }
 .circumplexTitle,.statTitle,.recentEntriesHeader,.mealHeader{
     background: #ffffff;
@@ -411,8 +424,19 @@ input, select {
     padding: 10px 10px 10px 20px;
     border: 1px solid #edb727;
 }
-#statChart{
-    height: 500px;
+#visualizationCarousel{
+    max-width: 100%;
+    -webkit-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   -moz-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+
+}
+.visualizationContainer{
+    background:#fff;
+    padding:10px;
+    -webkit-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   -moz-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
 }
 .mealCountContainer{
     margin-bottom: 20px;
@@ -455,6 +479,16 @@ input, select {
     margin-top:50px;
     margin-bottom: 20px;
 }
+.recent-entries-container{
+    padding:20px;
+    background:#fff;    
+    -webkit-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   -moz-box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+   box-shadow: -1px 18px 19px -1px rgba(171,171,171,1);
+}
+.recent-container{
+    margin-top:20px;
+}
 .recentEntriesImg{
     width:100%;
     padding:5px;
@@ -478,14 +512,14 @@ input, select {
 }
 .recentServing{
     font-size:100%;
-    color:#99958b;
+    color:#636262;
     font-family: novaThin;
     text-transform: uppercase;
     margin-top:10px;
 }
 .recentEntriesDate{
     font-size: 100%;
-    color:#99958b; 
+    color:#636262; 
     font-family: novaThin;
 }
 .addEntry-header--container{
@@ -582,9 +616,10 @@ input, select {
     text-transform: uppercase;
 }
 .servingSize,.entryDate{
-    color:#847f7f;
+    color:#636262;
     font-family: novaThin;
     padding-left:5px;
+    margin-top:5px;
 }
 .entryDate{
     margin-bottom: 20px;
@@ -618,6 +653,19 @@ input, select {
     float:right;
     margin-top:25px;
     padding-bottom: 5px;
+}
+.span-start-head,.span-end-head,.span-count{
+    color: #a5a9a5;
+    display: inline-block;
+    font-family: semiBold;
+    margin-left:10px;
+}
+.span-start-head span, .span-end-head span{
+    font-family: novaThin;
+}
+#rangeForm{
+    border-bottom: 1px dotted #eeb10c;
+    margin-bottom: 10px;
 }
 .bodyImg{
     width: 100%;
@@ -746,6 +794,9 @@ input, select {
 .mealEntryContainer{
     background:#fff;
     margin-top:10px;
+    -webkit-box-shadow: -1px 18px 19px -1px rgba(217,217,217,1);
+    -moz-box-shadow: -1px 18px 19px -1px rgba(217,217,217,1);
+    box-shadow: -1px 18px 19px -1px rgba(217,217,217,1);
 }
 .totalCountContainer{
     background:#eeb10c;
@@ -787,6 +838,7 @@ input, select {
     color:#eeb10c;
     font-size:280%;
     font-family: novaThin;
+    font-weight: bold;
 }
 .totalEntryCount{
     color:#fff;
@@ -844,15 +896,23 @@ input, select {
 }
 .custom-file-select,.custom-file-take{
     cursor: pointer;
-    padding:5px 0px 5px 5px;
+    padding: 15px 0px;
+    text-align: center;
     font-family: novaThin;
-    font-size: 100%;
-    color:#ffffff;
-    margin-bottom:10px;
+    font-size: 120%;
+    color: #969696;
+    margin-bottom: 10px;
     display: block;
-    background: #eeb10c;
-    width:100%;
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #d4d4d4;
 }
+.custom-file-take:hover{
+    background:#cecece;
+    color:#272727;
+    transition: .5s all;
+}
+
 input[type='file']{
     display: none;
 }
@@ -865,6 +925,10 @@ input[type='file']{
     color:#6f6e6e;
     font-size:112.5%;
     margin-bottom: 10px;
+}
+.labelDate{
+    font-size:100%;
+    text-transform: lowercase;
 }
 .detailSubmit{
     color:#fff;
@@ -999,7 +1063,7 @@ input[type='file']{
 }
 .dropdown-content a{
     display: block;
-    font-size:80%;
+    font-size:100%;
     padding:10px 10px 10px 10px;
 }
 .dropdown-content a:hover{
@@ -1032,8 +1096,9 @@ input[type='file']{
 }
 #alert{
     color:red;
-    font-family: novaThin;
+    font-family: semiBold;
     font-weight: bold;
+    text-transform: uppercase;
     margin-top:20px;
 }
 .setting-bodyContainer .col-md-6{
@@ -1111,8 +1176,38 @@ input[type='file']{
     border: none;
     font-family: novaThin;
     text-transform: uppercase;
-    margin-top: 16px;
+    margin-top: 26px;
+    margin-left:-10px;
 }
+.meaning-emotion{
+    margin-top:20px;
+}
+.emotion-header{
+    border-left: 5px solid #525252;
+    font-size: 130%;
+    text-transform: uppercase;
+    font-family: semiBold;
+    font-weight: bold;
+    color: #525252;
+    padding-left:5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top:30px;
+}
+.emotion-description{
+    font-family: novaThin;
+    color:#525252;
+    font-size:110%;
+    padding-left:10px;
+    margin-left:5px;
+    border-left: 1px solid #edb727;
+    line-height: 120%;
+    text-align: justify;
+}
+
+
+
+
 @media(max-width:990px){
     .fc-title{
         font-size: 100%;
@@ -1154,6 +1249,9 @@ input[type='file']{
     .marker{
         left:45.2%;
         top:45.2%;
+    }
+    .rangeSubmit{
+        margin-left: -20px;
     }
 }
 @media(max-width:991px) and (min-width:250px){
@@ -1274,6 +1372,13 @@ input[type='file']{
     .setting-bodyContainer .col-md-6{
         width:100%;
         margin-left:0px;
+        display: inline-block;
+    }
+    #rangeForm{
+        padding-bottom: 10px;
+    }
+    .rangeSubmit{
+        margin-left:0px;
     }
 }
 @media screen and (max-width:630px){
@@ -1285,6 +1390,9 @@ input[type='file']{
 @media screen and (max-width:425px){
     .form-container{
         padding:0 20px;
+    }
+    .rangeSubmit{
+        width:100%;
     }
     .circumplex-model{
         max-width:300px;

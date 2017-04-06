@@ -58,7 +58,8 @@
 				<div class="col-md-12">
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
-					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">Review List</a>
+					<a href="#"  class="breadcrumb-link  breadcrumb-link-active"><span class="fa fa-list"></span> review list</a>
+					<a href="#" id="help-circumplex" data-toggle="modal" title="Click for further info" data-target="#myModal"><span class="fa fa-question-circle"></span></a>
 				</div>
 			</div>
 		</div>
@@ -108,6 +109,23 @@
 			</div>
 		</div>
 	</section>
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog" id="helpCircumplexdialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Process</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<video width="100%" controls>
+			  <source src="video/entry-list.mp4" type="video/mp4">
+			  <source src="video/entry-list.mp4" type="video/ogg">
+			  Your browser does not support HTML5 video.
+			</video>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
 <script>
 	function removeEntry(id){
 	 	if(confirm('Are you sure you want to delete?')){

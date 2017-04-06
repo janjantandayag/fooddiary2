@@ -82,7 +82,7 @@
                   <input type="password" id="retype" class="form-control" onchange="isTheSame();" placeholder="Retype password" required>
                   <p id="alert"></p>
               </div>
-              <button id="buttonChange" name="updatePassword" type="submit" class="btn btn-warning">Update Details</button>
+              <button id="buttonChange" name="updatePassword" type="submit" class="btn btn-warning" onclick="check();">Update Details</button>
               <p id="alert"></p>
           </form>
           <?php 
@@ -122,6 +122,14 @@
 	</section>
 </body>
 <script>
+function check(){
+  if(confirm('Are you sure you want to update the name?')){
+  }
+  else
+  {
+      return false;
+  }
+}
 function isTheSame(){
   var password = document.getElementById("password").value;
   var retype = document.getElementById("retype").value;
@@ -154,11 +162,12 @@ function updateUserDetails(){
               prompt.css({
                   "color":"green",
                   "font-weight":"bold",
-                  "font-family":"novaThin",
-                  "margin-top":"20px"
+                  "font-family":"semiBold",
+                  "margin-top":"20px",
+                  "text-transform":"uppercase"
               });
               prompt.fadeIn(500);
-              prompt.fadeOut(1500);
+              prompt.fadeOut(5000);
               }
       };
 

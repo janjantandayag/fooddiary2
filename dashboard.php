@@ -24,7 +24,7 @@
 							<li><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
 							<li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a></li>	
 							<li class="navActive"><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
-							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span>help</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span>process</a></li>
 							<li  class="userNav"><a href="#"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a>
                             <div class="dropdown-content">
 						    	<a href="setting.php"><span class="fa fa-gear"></span>Settings</a>
@@ -53,83 +53,87 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mealCountContainer">
-					<div class="stat-header">
-						<h3 class="mealHeader">Total Food Intake By Meal</h3>
-					</div>
-					<?php 
-						$ids = [1,2,3,4];
-						foreach($ids as $id):
-					?>
-					<div class="mealEntryContainer">
-						<p class="mealLabelName"><?= $db->getMealName($id); ?></p>
-						<div class="entryCountContainer">
-							<p class="entryCount"><?= $db->countTotalEntries($id); ?></p>
-							<p class="entryLevel">entries</p>
+					<div class="visualizationContainer">
+						<div class="stat-header">
+							<h3 class="mealHeader">Total Food Intake By Meal</h3>
 						</div>
-					</div>
-					<?php endforeach; ?>
-					<div class="totalCountContainer">
-						<p class="totalCount">Total</p>
-						<div class="entryCountContainer">
-							<p class="totalEntryCount"><?= $db->getTotalEntry(); ?></p>
-							<p class="totalLabel">entries</p>
+						<?php 
+							$ids = [1,2,3,4];
+							foreach($ids as $id):
+						?>
+						<div class="mealEntryContainer">
+							<p class="mealLabelName"><?= $db->getMealName($id); ?></p>
+							<div class="entryCountContainer">
+								<p class="entryCount"><?= $db->countTotalEntries($id); ?></p>
+								<p class="entryLevel">entries</p>
+							</div>
+						</div>
+						<?php endforeach; ?>
+						<div class="totalCountContainer">
+							<p class="totalCount">Total</p>
+							<div class="entryCountContainer">
+								<p class="totalEntryCount"><?= $db->getTotalEntry(); ?></p>
+								<p class="totalLabel">entries</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 circumplexContainer">
-					<div class="circumplex-header">
-						<h3 class="circumplexTitle">Food Distribution (Circumplex Model)</h3>
-					</div>
-					<div class="range-circumplex" style="margin-top:30px">
-						<form id="rangeForm" method="GET" action="dashboard.php">
-							<div class="row">
-								<div class="col-md-5">									
-								  <div class="form-group">
-								    <label for="start" class="labelDate">Start date:</label>
-								    <input type="date" class="form-control" id="start" required name="startDate">
-								  </div>
+				<div class="col-md-6 circumplexContainer">				
+					<div class="visualizationContainer">
+						<div class="circumplex-header">
+							<h3 class="circumplexTitle">Food Distribution (Circumplex Model)</h3>
+						</div>
+						<div class="range-circumplex" style="margin-top:15px">
+							<form id="rangeForm" method="GET" action="dashboard.php">
+								<div class="row">
+									<div class="col-md-5 col-sm-5">		
+									  <div class="form-group">
+									    <label for="start" class="labelDate">Start date:</label>
+									    <input type="date" class="form-control" id="start" required name="startDate">
+									  </div>
+									</div>
+									<div class="col-md-5 col-sm-5">			
+									  <div class="form-group">
+									    <label for="end" class="labelDate">End date:</label>
+									    <input type="date" class="form-control" id="end" required name="endDate">
+									  </div>
+									</div>
+									<div class="col-md-2">
+								  		<button type="submit" class="rangeSubmit" >Submit</button>
+									</div>
 								</div>
-								<div class="col-md-5">									
-								  <div class="form-group">
-								    <label for="end" class="labelDate">End date:</label>
-								    <input type="date" class="form-control" id="end" required name="endDate">
-								  </div>
-								</div>
-								<div class="col-md-2">
-							  		<button type="submit" class="rangeSubmit" >Submit</button>
-								</div>
-							</div>
-						</form>
-						<?php
-							if(isset($_GET['startDate']) && isset($_GET['endDate'])):
-								?>
-							<p class="span-start-head">Start Date: <span> <?= $_GET['startDate'] ?></span></p>
-							<p class="span-end-head">End Date:  <span><?= $_GET['endDate'] ?></span></p>
-							<p class="span-count">Entries: <span><?= $db->countEntries($_GET['startDate'],$_GET['endDate']); ?></span></p>
+							</form>
 							<?php
-							endif;
-						?>
-					</div>
-					<div class="circumplex-body" style="margin-top:5px">		
-						<div class="circumplex-model" id="circumplex-model">	
-							<div class="label top">Pumped</div>
-							<div class="label left">Negative</div>
-							<div class="label right">Positive</div>
-							<div class="label bottom">Relaxed</div>
-							<?php
-								if(isset($_GET['startDate']) && isset($_GET['endDate'])){
-									$entries = $db->getEntriesDate($_GET['startDate'],$_GET['endDate']);
-								}
-								else{
-									$entries = $db->getEntries();
-								}
-								foreach($entries as $entry){ ?>						
-							<div class="circumplexFood" style="left:<?=$entry['xCoor'];?>%;top:<?=$entry['yCoor']-5;?>%">
-								<h5 class="circumplexFoodName"><?=$entry['food_name'];?></h5>
-								<img src="database/displayImage.php?itemId=<?=$entry['item_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
-							</div>
-								<?php }	?>
-						</div>		
+								if(isset($_GET['startDate']) && isset($_GET['endDate'])):
+									?>
+								<p class="span-start-head">Start Date: <span> <?= date("M d,Y", strtotime($_GET['startDate'] ))?></span></p>
+								<p class="span-end-head">End Date:  <span><?= date("M d,Y", strtotime($_GET['endDate'])) ?></span></p>
+								<p class="span-count">Entries: <span><?= $db->countEntries($_GET['startDate'],$_GET['endDate']); ?></span></p>
+								<?php
+								endif;
+							?>
+						</div>
+						<div class="circumplex-body" style="margin-top:5px">		
+							<div class="circumplex-model" id="circumplex-model">	
+								<div class="label top">Pumped</div>
+								<div class="label left">Negative</div>
+								<div class="label right">Positive</div>
+								<div class="label bottom">Relaxed</div>
+								<?php
+									if(isset($_GET['startDate']) && isset($_GET['endDate'])){
+										$entries = $db->getEntriesDate($_GET['startDate'],$_GET['endDate']);
+									}
+									else{
+										$entries = $db->getEntries();
+									}
+									foreach($entries as $entry){ ?>						
+								<div class="circumplexFood" style="left:<?=$entry['xCoor'];?>%;top:<?=$entry['yCoor']-5;?>%">
+									<h5 class="circumplexFoodName"><?=$entry['food_name'];?></h5>
+									<img src="database/displayImage.php?itemId=<?=$entry['item_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
+								</div>
+									<?php }	?>
+							</div>		
+						</div>
 					</div>
 				</div>
 			</div>
@@ -138,46 +142,50 @@
 	<section id="visualization">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 statContainer">
-					<div class="stat-header">
-						<!-- <h3 class="statTitle">Statistics </h3> -->
-					</div>
-					<div id="statChart">
-						<?php $emotions = $db->getEmotion(); ?>				
-					</div>
-				</div>
-				<div class="col-md-6 statContainer">
-					<div class="stat-header">
-						<!-- <h3 class="statTitle">Statistics </h3> -->
-					</div>
-					<div id="statChartByMeal">
-						<?php $emotions = $db->getEmotion(); ?>				
-					</div>
-				</div>
+				<div class="col-md-12">
+					<div id="visualizationCarousel" class="carousel slide" data-ride="carousel">
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators">
+						    <li data-target="#visualizationCarousel" data-slide-to="0" class="active"></li>
+						    <li data-target="#visualizationCarousel" data-slide-to="1"></li>
+						  </ol>
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" role="listbox">
+						    <div class="item active">
+								<div id="statChart"><?php $emotions = $db->getEmotion(); ?></div>
+						    </div>
+						    <div class="item">					      
+								<div id="statChartByMeal"><?php $emotions = $db->getEmotion(); ?></div>
+						    </div>
+						  </div>
+					 </div>
+				 </div>
 			</div>
-		</div>
+		</div>		
 	</section>
 	<section id="recent-entries">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="recentEntriesHeading">
-							<h3 class="recentEntriesHeader">Recent Entries</h3>
+			<div class="recent-entries-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="recentEntriesHeading">
+								<h3 class="recentEntriesHeader">Recent Entries</h3>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row recent-container">
-				<?php foreach($db->getRecentEntries() as $recent) { ?>
-				<div class="col-md-3 col-sm-6 recentContainer">
-					<img class="recentEntriesImg" src="database/displayImage.php?itemId=<?=$recent['item_id'] ?>" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName"><?=$recent['food_name'] ?> </p>
-						<p class="recentEntriesDate"><span style="margin-right:5px" class="fa fa-calendar-o"></span><?= date("Y-m-d h:i:s A",strtotime($recent['date_added'])) ?></p>
-						<p class="recentServing"><span style="margin-right:5px" class="fa fa-cutlery"></span><?=$recent['serving_size'] ?> </p>
-						<p class="recentServing"><span style="margin-right:5px" class="fa fa-smile-o"></span><?=$recent['emotion_name'] ?> </p>
+				<div class="row recent-container">
+					<?php foreach($db->getRecentEntries() as $recent) { ?>
+					<div class="col-md-3 col-sm-6 recentContainer">
+						<img class="recentEntriesImg" src="database/displayImage.php?itemId=<?=$recent['item_id'] ?>" />
+						<div class="recentEntriesDesc">
+							<p class="recentFoodName"><?=$recent['food_name'] ?> </p>
+							<p class="recentEntriesDate"><span style="margin-right:5px" class="fa fa-calendar-o"></span><?= date("Y-m-d h:i:s A",strtotime($recent['date_added'])) ?></p>
+							<p class="recentServing"><span style="margin-right:5px" class="fa fa-cutlery"></span><?=$recent['serving_size'] ?> </p>
+							<p class="recentServing"><span style="margin-right:5px" class="fa fa-smile-o"></span><?=$recent['emotion_name'] ?> </p>
+						</div>
 					</div>
+					<?php } ?>
 				</div>
-				<?php } ?>
 			</div>
 		</disv>
 	</section>

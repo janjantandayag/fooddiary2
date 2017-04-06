@@ -57,7 +57,8 @@
 			<div class="row breadcrumbContainer">
 				<div class="col-md-12">
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
-					<a href="archive.php"  class="breadcrumb-link  breadcrumb-link-active"><span class="fa fa-calendar-o"></span> archive</a>
+					<a href="archive.php"  class="breadcrumb-link  breadcrumb-link-active"><span class="fa fa-calendar-o"></span> archive</a> 
+          <a href="#" id="help-circumplex" data-toggle="modal" title="Click for further info" data-target="#myModal"><span class="fa fa-question-circle"></span></a>
 				</div>
 			</div>
 		</div>
@@ -66,7 +67,7 @@
 		<div class="container">
 			<div class="row archive-bodyContainer">
 				<div class="calendarHeader">					
-					<p class="circumplexHeading--helper" style="margin-left:15px"><span style="color:red;font-weight: bold;font-style:normal;font-family: semiBold">NOTE:</span> Just click on the date to add/view entry</p>
+					<p class="circumplexHeading--helper" style="margin-left:15px"><span style="color:red;font-weight: bold;font-style:normal;font-family: semiBold">NOTE:</span> Just click on the date to add/view entry</p>                    
 				</div>
 				<div class="col-md-12">
 					<div id="calendar"></div>
@@ -74,6 +75,23 @@
 			</div>
 		</div>
 	</section>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" id="helpCircumplexdialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Process</h4>
+        </div>
+        <div class="modal-body">
+          <video width="100%" controls>
+            <source src="video/archive.mp4" type="video/mp4">
+            <source src="video/archive.mp4" type="video/ogg">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
 	   <!-- jQuery 2.1.4 -->
     <script src="calendar/jQuery/jQuery-2.1.4.min.js"></script>
     <script src="calendar/moment.min.js"></script>
