@@ -143,7 +143,8 @@ input, select {
     font-size:100%;
 }
 .form--body input[type='submit']{
-    font-family: altCondensedSemibold;
+    font-family: semiBold;
+    text-transform: uppercase;
     font-size:125%;
     color:#ffffff;
     background:#eeb10c;
@@ -1041,7 +1042,7 @@ input[type='file']{
     padding:10px;
     margin-top:20px;
     font-size:120%;
-    font-family: novaThin;
+    font-family: semiBold;
     color:#fff;
     text-transform: uppercase;
     background:#eeb10c;
@@ -1203,6 +1204,154 @@ input[type='file']{
     border-left: 1px solid #edb727;
     line-height: 120%;
     text-align: justify;
+}
+
+.sharingBody{
+    background:#e8e7e7;
+}
+.sharingBody header{
+    background:#fff;
+    -webkit-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+    -moz-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+    box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+    text-align: center;
+    padding:15px 0;
+}
+.sharingBody .logo{
+    max-width:100px;
+    display: inline-block;
+    margin-right:20px;
+}
+.sharingBody h1{
+    display: inline-block;
+    color:#6d6767;
+    font-size:187.5%;
+    font-family: semiBold;
+    position: relative;
+    top:-40px;
+}
+.sharingContentContainer{
+    max-width:700px;
+    margin:0 auto;
+    background:#fff;
+    margin-top:50px;
+    padding:20px 20px;
+}
+#sharingContent{
+    margin-bottom: 20px;
+}
+.user-name{
+    color:#6b6969;
+    font-family: novaThin;
+    font-size:112.5%;
+    text-transform: uppercase;
+}
+.user-img{
+    color:#6b6969;
+
+}
+.user-emotion{
+    font-size:14px;
+    color:#9c9c9c;
+    font-family: novaThin;
+    display: block;
+    margin-top:5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left:18px;
+}
+.user-datecontainer{
+    float:right;
+    background:#eeb10c;
+    color:#fff;
+    padding:10px;
+    position: relative;
+    top:-65px;
+    left:20px;
+}
+.user-datecontainerMobile{
+    float:none;
+    background:#eeb10c;
+    text-align: center;
+    color:#fff;
+    padding:10px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.user-date{
+    font-size:112.5%;
+    font-family: semiBold;
+    display: block;
+    margin-bottom: 5px;
+}
+.user-time{
+    font-family: novaThin;
+}
+.contentContainer{
+    position: relative;
+    top:-20px;
+
+}
+.food-description{
+    font-family: novaThin;
+    color:#464646;
+    font-size:125%;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.food-img,.food-name,.food-serving,.sharing-signInButton{
+    width: 400px;
+    max-width: 100%;
+    display: block;
+    margin:0 auto;
+}
+.food-name{
+    color:#666161;
+    font-family: semiBold;
+    text-transform: uppercase;
+    font-size: 125%;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.food-serving{
+    color:#666161;
+    font-size:112.5%;
+    font-family: novaThin;
+}
+.sharing-signInButton{
+    margin-top:50px;
+    color:#fff;
+    font-family: semiBold;
+    font-size:125%;
+    background:#eeb10c;
+    padding:20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.sharing-signInButton:hover{
+    text-decoration: none;
+    color:#fff;
+}
+.sharingContent-top{
+    border-bottom: 1px dotted #000;
+    padding-bottom: 20px;
+}
+
+
+@media(max-width:375px){
+    .user-datecontainerMobile{
+        display: block;
+    }
+    .user-datecontainer{
+        display: none;
+    }
+    .contentContainer{
+        top:20px;
+    }
+    .sharingBody .logo{
+        margin-right:0px;
+    }
 }
 
 
