@@ -15,7 +15,6 @@
     		$_SESSION['date'] = $_GET['date'];
     		$_SESSION['throwdate'] = $_GET['date'];
     		$_SESSION['echodate'] = date("M d, Y",strtotime($_GET['date']));
-    		$_SESSION['time'] = "<input type='time' class='form-control' name='time' />";
     	}
     }
     else{
@@ -44,7 +43,7 @@
 							<li><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
 							<li class="navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a></li>	
 							<li><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
-							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span>help</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span>steps</a></li>
 							<li  class="userNav"><a href="#"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a>
                             <div class="dropdown-content">
 						    	<a href="setting.php"><span class="fa fa-gear"></span>Settings</a>
@@ -59,7 +58,7 @@
                             <li><a href="archive.php"><span class="fa fa-calendar-o"></span> archive</a></li>
                             <li  class="mobile-navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
                             <li><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
-							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span> help</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span> steps</a></li>
                             <li><a href="setting.php"><span class="fa fa-gear"></span> setting</a></li>
                             <li><a href="database/logout.php"><span class="fa fa-power-off"></span> <?= $_SESSION['name'] ?>, logout</a>
                             </li>
@@ -131,6 +130,7 @@
 										echo $dateFormatted;
 									?>
 								</p>
+								<a href="http://www.facebook.com/sharer/sharer.php?u=http://diary.x10.mx/sharing.php?itemId=<?= $meal['item_id']; ?>" class="share" value=""><span class="fa fa-facebook" style="margin-right:5px"></span> Share</a>
 							</div>
 						</div>				
 					</div>			
@@ -159,6 +159,17 @@
       </div>
     </div>
   </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('.share').click(function(e) {
+        e.preventDefault();
+        window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        return false;
+    });
+});
+</script>
 <script>
 $("#showItem").click(function(){
     $(".itemView").toggle();

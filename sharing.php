@@ -1,11 +1,12 @@
 <?php
    	include('database/Function.php');
     $db = new Database;
+    if(isset($_GET['itemId'])){      
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Entry</title>
+	<title>Feed</title>
 	<?php include ('include/links.php'); ?>
 </head>
 <body class="sharingBody">
@@ -19,33 +20,36 @@
       </div>
     </div>
   </header>
+  <?php $result = $db->feedQuery($_GET['itemId']); ?>
   <section id="sharingContent">
     <div class="container sharingContentContainer">
       <div class="row">
         <div class="col-md-12">
           <div class="sharingContent-top">
             <div class="user-datecontainerMobile">
-              <span class="user-date">Apr 17, 2017</span>
-              <span class="user-time">8:23 PM</span>
+              <span class="user-date"><?= date("M d, Y",strtotime($result['entry_date'])); ?></span>
+              <span class="user-time"><?= date("H:i:s A",strtotime($result['entry_date'])); ?></span>
+              <span class="user-meal"><?= $result['meal_name']; ?></span>
             </div>
             <div>
               <span class="user-img fa fa-user" ></span>
-              <span class="user-name">Jan-Jan Tandayag</span>
-              <span class="user-emotion">Pleasure</span>
+              <span class="user-name"><?= $result['first_name'].' '.$result['last_name']; ?></span>
+              <span class="user-emotion"><?= $result['emotion_name']; ?></span>
             </div>
             <div class="user-datecontainer">
-              <span class="user-date">Apr 17, 2017</span>
-              <span class="user-time">8:23 PM</span>
+              <span class="user-date"><?= date("M d, Y",strtotime($result['entry_date'])); ?></span>
+              <span class="user-time"><?= date("H:i:s A",strtotime($result['entry_date'])); ?></span>
+              <span class="user-meal"><?= $result['meal_name']; ?></span>
             </div>
           </div>
         </div>
       </div>
       <div class="row contentContainer">
         <div class="col-md-12">
-          <p class="food-description">Lami kaayo ni siya</p>
-          <img class="food-img" src="img/halo-halo.jpg" />
-          <p class="food-name">Halo-halo</p>
-          <p class="food-serving">5 cups</p>
+          <p class="food-description"><?= $result['food_description'];?></p>
+          <img class="food-img" src="database/displayImage.php?itemId=<?=$result['item_id']; ?>" />
+          <p class="food-name"><?= $result['food_name']; ?></p>
+          <p class="food-serving"><?= $result['serving_size']; ?></p>
         </div>
       </div>
       <div class="row">
@@ -55,5 +59,12 @@
       </div>
     </div>
   </section>
+<script>
+</script>
 </body>
 </html>
+<?php } 
+else{
+  echo "<script>window.location.href='index.php';</script>";
+}
+?>

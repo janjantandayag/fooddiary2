@@ -27,7 +27,7 @@
 							<li><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
 							<li class="navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a></li>	
 							<li><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
-							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span>help</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span>steps</a></li>
 							<li  class="userNav"><a href="#"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a>
                             <div class="dropdown-content">
 						    	<a href="setting.php"><span class="fa fa-gear"></span>settings</a>
@@ -42,7 +42,7 @@
                             <li><a href="archive.php"><span class="fa fa-calendar-o"></span> archive</a></li>
                             <li  class="mobile-navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
                             <li><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
-							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span> help</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span> steps</a></li>
                             <li><a href="setting.php"><span class="fa fa-gear"></span> setting</a></li>
                             <li><a href="database/logout.php"><span class="fa fa-power-off"></span> <?= $_SESSION['name'] ?>, logout</a>
                             </li>
@@ -69,7 +69,7 @@
 		<div class="mainPageFoodDetailContainer">
 			<div class="container foodDetailContainer">
 				<div class="row">
-					<div class="col-md-4 uploadPhoto">	
+					<div class="col-md-4 col-sm-5 uploadPhoto">	
 						<form action='food-detail.php' method="POST" enctype="multipart/form-data">
 							<h1 class="uploadPhotoHeader">Upload Photo</h1>
 							<div class="degree90">
@@ -82,7 +82,7 @@
 								</div>
 							</div>
 					</div>
-					<div class="col-md-8 foodDetails">						
+					<div class="col-md-8 col-sm-7 foodDetails">						
 						<h1 class="foodDetailsHeader">Details</h1>
 						<div class="formContainer">							
 								<div class="row">
@@ -103,12 +103,11 @@
 							    	<label for="description" class="labelFood">Description</label>
 							    	<textarea class="form-control" id="description" name="description" required></textarea>
 							  	</div>
-							  	<?php if ($_SESSION['time']) : ?>
 							  	<div class="form-group">
-									<label for="servingSize" class="labelFood">Time</label>
-							  		<?= $_SESSION['time']; ?>
+									<label for="servingSize" class="labelFood">Time Eaten</label>
+									<p style="font-family: novaThin;color:#8a8989;font-weight: bold;margin-bottom: 4px;font-style: italic">Default time is the current time</p>
+									<input type='time' class='form-control' name='time' value="<?php echo date('H:i'); ?>" required />
 							  	</div>
-							  <?php endif; ?>
 							  	<input type="submit" name="addDiary" class="detailSubmit" value="Add to Diary" />
 						 	</form>
 							<?php

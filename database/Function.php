@@ -77,6 +77,13 @@ Class Database {
  		$result = $stmt->fetch();
  		return $result;
 	}
+	public function feedQuery($itemId){
+		$id = $itemId;
+		$stmt = $this->conn->prepare("SELECT * FROM meals,users,item,entries,emotions WHERE item.item_id = $id AND item.entry_id = entries.entry_id AND entries.user_id = users.user_id AND entries.emotion_id = emotions.emotion_id AND entries.meal_id = meals.meal_id"); 
+ 		$stmt->execute(); 
+ 		$result = $stmt->fetch();
+ 		return $result;
+	}
 	public function getEntries(){
 		$uid = $_SESSION['userId'];
 		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE entries.user_id = $uid AND entries.entry_id = item.entry_id"); 

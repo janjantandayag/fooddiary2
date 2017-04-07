@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Steps</title>
 	<?php include ('include/links.php'); ?>
 </head>
 <body class="documentationBody">
@@ -57,7 +57,7 @@
 				</div>
 				<div class="col-md-4">
 					<img src="img/archive-3.PNG" class="docuImg"/>
-					<p class="step"><span>3</span> Enter information regarding the food (45 degree image, 90 degree image, name, serving size, description)</p>
+					<p class="step"><span>3</span> Enter information regarding the food photo, name, serving size, description)</p>
 				</div>
 			</div>
 			<div class="row">				

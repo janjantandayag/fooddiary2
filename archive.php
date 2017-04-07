@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Entry</title>
+	<title>Archive</title>
 	<?php include ('include/links.php'); ?>
 	<!-- fullCalendar 2.2.5-->
     <link rel="stylesheet" href="calendar/fullcalendar/fullcalendar.min.css">
@@ -27,7 +27,7 @@
               <li  class="navActive"><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
               <li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a></li> 
               <li><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
-              <li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span>help</a></li>
+              <li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span>steps</a></li>
               <li  class="userNav"><a href="#"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a>
                             <div class="dropdown-content">
                   <a href="setting.php"><span class="fa fa-gear"></span>Settings</a>
@@ -42,7 +42,7 @@
                     <li><a href="archive.php"><span class="fa fa-calendar-o"></span> archive</a></li>
                     <li  class="mobile-navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
                     <li><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
-                    <li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span> help</a></li>
+              <li><a href="documentation.php" target="_blank"><span class="fa fa-list-ol"></span> steps</a></li>
                     <li><a href="setting.php"><span class="fa fa-gear"></span> setting</a></li>
                     <li><a href="database/logout.php"><span class="fa fa-power-off"></span> <?= $_SESSION['name'] ?>, logout</a>
                     </li>

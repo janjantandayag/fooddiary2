@@ -8,13 +8,8 @@
 	$posX = $_SESSION['detail']['posX'];
 	$posY = $_SESSION['detail']['posY'];	
 	$deg = $_SESSION['detail']['deg'];
-	if($_SESSION['time']){
-		$time = date("H:i:00", strtotime($_SESSION['time']));
-		$date = $_SESSION['detail']['date'].' '.$time;
-	}
-	else{
-		$date = $_SESSION['detail']['date'];
-	}
+	$time = date("H:i:00", strtotime($_SESSION['time']));
+	$date = $_SESSION['detail']['date'].' '.$time;
 	$dateAdded = $_SESSION['detail']['dateAdded'];
 	$insertIntoEntry = mysqli_query($conn, "INSERT INTO entries(user_id,emotion_id,meal_id,entry_date,date_added,entry_angle,xCoor,yCoor) VALUE($userId,$emotionId,$mealId,'$date','$dateAdded','$deg',$posX,$posY)");
 	$entryId=mysqli_insert_id($conn);

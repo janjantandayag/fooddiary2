@@ -22,7 +22,7 @@
 					<div class="form-container">
 						<div class="form--header">
 							<img src="img/logo.png" class="img-logo"/>
-							<h1>Food App</h1>
+							<h1>Food Diary App</h1>
 						</div>
 						<div class="form--body">
 							<div class="form">

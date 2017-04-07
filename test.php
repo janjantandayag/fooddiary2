@@ -1,8 +1,9 @@
 <?php
 	session_start();
-		$time = date("H:i:00", strtotime('11:20 PM'));
-		$date = $_SESSION['detail']['date'].' '.$time;
-		var_dump($date);
+	var_dump($_SESSION['shareId']);
+		// $time = date("H:i:00", strtotime('11:20 PM'));
+		// $date = $_SESSION['detail']['date'].' '.$time;
+		// var_dump($date);
 	// var_dump($_SESSION['detail']['dateAdded']);
 	// var_dump($_SESSION['detail']['date']);
 	// var_dump(date("Y-m-d H:i:s"));

@@ -616,7 +616,7 @@ input, select {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
-.servingSize,.entryDate{
+.servingSize,.entryDate,.share{
     color:#636262;
     font-family: novaThin;
     padding-left:5px;
@@ -624,6 +624,23 @@ input, select {
 }
 .entryDate{
     margin-bottom: 20px;
+}
+.share{
+    font-family: semiBold;
+    font-size: 87.5%;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: #eeb10c;
+    padding: 5px;
+    float: right;
+    color: #fff;
+}
+.share:hover{
+    background:#fff;
+    color:#365899;
+    transition: .5s all;
+    text-decoration: none;
 }
 .entryContainer{
     border-bottom: 1px solid #eeb10c;
@@ -1139,11 +1156,13 @@ input[type='file']{
     margin-left:10px;
     font-family: novaThin;
     font-size:120%;
-    color:#b6b3b3;
+    color:#3c3c3c;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 .documentationBody img{
     margin-top:10px;
+    border: 1px solid #ececec;
 }
 .helperDescription{
     margin-left:10px;
@@ -1287,6 +1306,12 @@ input[type='file']{
 }
 .user-time{
     font-family: novaThin;
+}
+.user-meal{
+    display: block;
+    font-family: novaThin;
+    text-transform: uppercase;
+    margin-top:5px;
 }
 .contentContainer{
     position: relative;
